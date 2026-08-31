@@ -66,7 +66,7 @@ $$f=\frac{c}{λ} = \frac{3 \cdot 10^8 \space [\frac{m}{s}]}{60 \cdot 10^{-3}\spa
 
 > El **espectro electromagnético** es la gama completa de la radiación electromagnética e incluye todas las formas de energía que viajan como ondas o partículas a través del espacio, abarcando una amplia gama de longitudes de onda y frecuencias. En ese sentido, existen varias **regiones** o **porciones**, cada una con sus propias características y aplicaciones. 
 >
-> Estas **regiones** incluyen las ondas de radio, las microondas, la radiación infrarroja, la luz visible, la radiación ultravioleta, los rayos X y los rayos gamma. En la siguiente figura se muestra el **rango específico de frecuencias** que define a cada región.
+> Entre las **regiones** o **categorías** que suelen utilizarse para clasificar el espectro se encuentran las ondas de radio, las microondas, la radiación infrarroja, la luz visible, la radiación ultravioleta, los rayos X y los rayos gamma. En la siguiente figura se muestra el **rango específico de frecuencias** que define a cada región.
 
 <center>
     <img src="https://hackmd.io/_uploads/HkKkLphPzx.png" width="700">
@@ -123,14 +123,11 @@ $$f=\frac{c}{λ} = \frac{3 \cdot 10^8 \space [\frac{m}{s}]}{60 \cdot 10^{-3}\spa
   - ¿Afecta a las transmisiones de telefonía celular?
   > Efectivamente, son afectadas debido a que las ondas sufren atenuación por el **espacio libre**, por las **condiciones atmosféricas** y por **obstáculos urbanos**, como por ejemplo, los edificios y la vegetación. Esto provoca la **pérdida de conectividad** en rutas alejadas o en subsuelos donde los materiales absorben la onda.
   - ¿Afecta a las transmisiones por cable coaxial?
-  > Sí, existe atenuación en cable coaxial, que puede deberse a diferentes mecanismos: 
-  > 
-  > - **Radiación** fuera del cable debido a un blindaje imperfecto.
-  > - **Pérdidas resistivas** en los conductores del cable.
-  > - Absorción de señal en el **dieléctrico del cable**.
-  > - **Reflexiones** producidas por **desadaptaciones de impedancia** entre el cable y las terminaciones, o por discontinuidades a lo largo del enlace.
-  >
-  > En aplicaciones de banda ancha, la atenuación aumenta con la **longitud del enlace** y con la **frecuencia de operación**, por lo que en determinadas aplicaciones resulta necesario incorporar **elementos de compensación o regeneración de la señal** con la finalidad de evitar una disminución del rendimiento.
+  > Sí, existe atenuación en el cable coaxial. Principalmente, las pérdidas están asociadas a la **resistencia de los conductores**, a la **absorción en el material dieléctrico** y, en determinadas condiciones, a la **radiación electromagnética** debido a un blindaje imperfecto.
+>
+> Por otra parte, las **desadaptaciones de impedancia** entre el cable y las terminaciones, o las discontinuidades a lo largo del enlace, pueden producir **reflexiones** de la señal que deterioran la calidad de la transmisión.
+> 
+> En aplicaciones de banda ancha, la atenuación aumenta con la **longitud del enlace** y con la **frecuencia de operación**, por lo que en determinadas aplicaciones resulta necesario incorporar **elementos de compensación o regeneración de la señal** con la finalidad de evitar una disminución del rendimiento.
 
   - ¿Afecta a las transmisiones por fibra óptica?
   > De igual manera, se produce una pérdida de señal por fibra óptica.
@@ -192,7 +189,8 @@ Comunicar datos a través de cualquier medio es, en esencia, un proceso que cons
 **b.** ¿Es este el mejor paradigma si busco transmitir datos rápidamente y de forma bidireccional?
 
 > El esquema presentado no es el adecuado para cumplir con esos requerimientos por los siguientes motivos:
-> - El diagrama ilustra un canal **estrictamente unidireccional**, por lo tanto, la transmisión de datos se encuentra limitada a un único sentido de transmisión. Si se desea lograr una comunicación bidireccional rápida y eficiente, el paradigma a seguir es el **Full-duplex** debido a que permite a ambas estaciones transmitir y recibir simultáneamente sin colisiones.
+> - El diagrama ilustra un canal **estrictamente unidireccional**, por lo tanto, la transmisión de datos se encuentra limitada a un único sentido de transmisión. Si se desea lograr una comunicación bidireccional en la que ambas estaciones puedan transmitir y recibir simultáneamente, el paradigma adecuado es el **Full-duplex**, debido a que permite a ambas estaciones transmitir y recibir simultáneamente sin colisiones.
+> 
 > 
 > - El sistema utiliza una **línea de reloj** separada de la línea de datos. Si bien esta arquitectura permite una sincronización sencilla entre emisor y receptor, requiere un **canal adicional** para distribuir la referencia temporal. En sistemas de comunicación de alta velocidad pueden utilizarse **técnicas de sincronización más eficientes**, como la recuperación de reloj a partir de la propia señal de datos, evitando la necesidad de transmitir una línea de reloj independiente.
 
@@ -257,7 +255,7 @@ Con esto en mente, analizar el siguiente gráfico de ejemplo y responder las pre
 
 > Dado que en el inciso anterior se abordó la modificación de la fase, las otras técnicas fundamentales que alteran los parámetros restantes son:
 > 
-> - **Amplitude Shift Keying (ASK):** Modula la amplitud de la señal portadora para representar datos binarios. Las variaciones de amplitud significan diferentes estados digitales (0 y 1). Por ejemplo, si se **transmite 1 bit**: la señal se **emite** cuando la información a transmitir es un 1 y **no se emite** cuando lo que se quiere transmitir es un 0.
+> - **Amplitude Shift Keying (ASK):** Modula la amplitud de la señal portadora para representar datos binarios. Las variaciones de amplitud significan diferentes estados digitales (0 y 1). Por ejemplo, en una implementación binaria de tipo OOK, la señal portadora **se transmite** para representar un 1 y **se suprime** para representar un 0.
 > 
 > - **Frequency Shift Keying (FSK):** Altera la frecuencia de la señal portadora para transmitir información digital. Utiliza **diferentes frecuencias para representar valores binarios**, y cada frecuencia denota un estado digital específico. Por ejemplo, si se **transmite 1 bit**: se usa **una frecuencia de la portadora** para indicar que la información transmitida es un 0 y **otra frecuencia diferente** para indicar que el bit transmitido es un 1.
 
@@ -273,7 +271,7 @@ Con esto en mente, analizar el siguiente gráfico de ejemplo y responder las pre
 
 $$BER = \frac{N°\space de \space bits \space erroneos}{N°\space de \space bits \space transmitidos} $$
 
-> Una BER más **baja** indica una mayor calidad de transmisión y fiabilidad del canal, mientras que una BER **alta** sugiere interferencia, ruido o distorsión y, en consecuencia, un menor nivel de confiabilidad del enlace.
+> Una BER más **baja** indica una mayor calidad y confiabilidad de la transmisión, mientras que una BER **alta** sugiere interferencia, ruido o distorsión y, en consecuencia, un menor nivel de confiabilidad del enlace.
 >
 > Teniendo en cuenta esto, se procede a evaluar las técnicas de modulación mencionadas en el inciso anterior:
 > 
@@ -410,7 +408,7 @@ La realización de este trabajo permitió repasar conceptos que forman parte del
 
 Por otro lado, a través del estudio de las señales digitales se logró comprender la importancia de la sincronización y de los instantes adecuados para interpretar correctamente la información transmitida. A su vez, se repasaron las técnicas de modulación digital, las cuales muestran que una señal no se transmite necesariamente de forma directa, sino que puede utilizarse para modificar distintas características de una señal portadora según las condiciones del medio. Siguiendo esa línea, el análisis del BER resultó de suma utilidad, puesto que permitió relacionar la elección de estas técnicas con la confiabilidad de la transmisión.
 
-Finalmente, la implementación de una red inalámbrica en Cisco Packet Tracer permitió llevar estos conceptos a una situación práctica. Las pruebas realizadas mostraron que, si bien los dispositivos se encuentran correctamente configurados, se debe recordar que la comunicación inalámbrica está condicionada por las características físicas del enlace. En ese sentido, a medida que se alejaba la portátil del punto de acceso, se observaba una disminución de la potencia de señal hasta que finalmente se perdió la conectividad. Esto permitió comprobar en la simulación la relación entre la atenuación y el alcance de una comunicación inalámbrica.
+Finalmente, la implementación de una red inalámbrica en Cisco Packet Tracer permitió llevar estos conceptos a una situación práctica. Las pruebas realizadas mostraron que, si bien los dispositivos se encuentran correctamente configurados, la comunicación inalámbrica también está condicionada por las características físicas del enlace. En ese sentido, a medida que se alejaba la portátil del punto de acceso, se observaba una disminución de la potencia de señal hasta que finalmente se perdió la conectividad. Esto permitió comprobar en la simulación la relación entre la atenuación y el alcance de una comunicación inalámbrica.
 
 ---
 
