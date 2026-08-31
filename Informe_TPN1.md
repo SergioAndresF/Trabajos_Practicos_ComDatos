@@ -96,9 +96,9 @@ $$f=\frac{c}{λ} = \frac{3 \cdot 10^8 \space [\frac{m}{s}]}{60 \cdot 10^{-3}\spa
 > Como **ejemplos concretos** de dispositivos que operan en esta banda, se pueden mencionar los **routers inalámbricos**, como los que operan en $5 \space[GHz]$ bajo el estándar 802.11ac/ax para redes WLAN y las **antenas terminales VSAT** utilizadas para recibir internet satelital.
 
 <center>
-  <img src="https://hackmd.io/_uploads/HkQs-RhPzl.png" width="200">
+  <img src="https://hackmd.io/_uploads/B1o2bmQuzx.png" width="200">
   <br>
-  <em>Figura 4: Router inalámbrico Linksys WRT300N.</em>
+  <em>Figura 4: Router inalámbrico TP-Link Archer C6.</em>
 </center>
 
 <center>
