@@ -87,7 +87,7 @@ $$f=\frac{c}{λ} = \frac{3 \cdot 10^8 \space [\frac{m}{s}]}{60 \cdot 10^{-3}\spa
 > Habiendo revisado estos conceptos, para **clasificar la onda bajo estudio**, cuya frecuencia es de $5 \space[GHz]$, se llega a lo siguiente:
 > 
 > - La onda opera dentro de la **región** del espectro correspondiente a la **Radiofrecuencia**, ubicándose específicamente en el rango de las **Microondas**. 
-> - Con respecto a su estandarización regulatoria y siguiendo la **clasificación oficial de la Recomendación UIT-R V.431**, esta frecuencia opera en la **Banda 10**, denominada **SHF (Super High Frequency)**. Cabe destacar que la subdivisión métrica de la ITU para esta banda es la de **"ondas centimétricas"**, lo cual se verifica de forma analítica al haber calculado una longitud de onda de $6 \space[cm]$ en el inciso anterior.
+> - Con respecto a la **clasificación oficial de la Recomendación UIT-R V.431**, esta frecuencia opera en la **Banda 10**, denominada **SHF (Super High Frequency)**. Cabe destacar que la subdivisión métrica de la ITU para esta banda es la de **"ondas centimétricas"**, lo cual se verifica de forma analítica al haber calculado una longitud de onda de $6 \space[cm]$ en el inciso anterior.
 
 **c.** Investigar qué dispositivos para comunicaciones de datos operan en esta banda y brindar al menos un ejemplo.
 
@@ -113,17 +113,17 @@ $$f=\frac{c}{λ} = \frac{3 \cdot 10^8 \space [\frac{m}{s}]}{60 \cdot 10^{-3}\spa
 
 **e.** El fenómeno descrito en el ítem anterior, ¿afecta al dispositivo que diste de ejemplo? ¿Podés notar esto en alguna experiencia de la vida cotidiana?
 
-> - En el caso del **router inalámbrico**, la señal pierde energía a medida que viaja por el aire y también, de manera aún más severa, cuando debe atravesar varios obstáculos físicos tales como paredes, techos o muebles, debido a que éstos pueden reflejar o absorber parcial o fuertemente la señal. En ese sentido, cuantos más obstáculos, peor será la señal.
+> - En el caso del **router inalámbrico**, la señal pierde energía a medida que viaja por el aire y también, de manera aún más severa, cuando debe atravesar varios obstáculos físicos tales como paredes, techos o muebles, debido a que éstos pueden reflejar, absorber o atenuar la señal. En ese sentido, cuantos más obstáculos, peor será la señal.
 > 
 > - En el caso de la **antena VSAT**, las ondas sufren atenuación al atravesar la atmósfera terrestre, siendo sensibles a la absorción por el vapor de agua y a la dispersión causada por las gotas de lluvia (rain fade).
 >
-> En lo que respecta a la vida cotidiana, se puede experimentar a diario el caso de la **red Wi-Fi (router)**. Al **alejarse físicamente** del router ya sea, desplazándose hacia otra habitación o al exterior de la vivienda, en el dispositivo que, puede ser un teléfono móvil o bien un computador, se logra observar una **disminución visual** en el indicador de intensidad de la señal, lo que se traduce en una **menor velocidad de transferencia de datos** o, en caso de que la atenuación sea total, en la **pérdida de la conexión.**
+> En lo que respecta a la vida cotidiana, se puede experimentar a diario el caso de la **red Wi-Fi (router)**. Al **alejarse físicamente** del router, por ejemplo, desplazándose hacia otra habitación o al exterior de la vivienda, se puede observar en el dispositivo receptor una **disminución** del indicador de intensidad de la señal, lo que se traduce en una **menor velocidad de transferencia de datos** o, en caso de que la atenuación sea total, en la **pérdida de la conexión.**
 
 **f.**  El fenómeno descrito anteriormente:
   - ¿Afecta a las transmisiones de telefonía celular?
   > Efectivamente, son afectadas debido a que las ondas sufren atenuación por el **espacio libre**, por las **condiciones atmosféricas** y por **obstáculos urbanos**, como por ejemplo, los edificios y la vegetación. Esto provoca la **pérdida de conectividad** en rutas alejadas o en subsuelos donde los materiales absorben la onda.
   - ¿Afecta a las transmisiones por cable coaxial?
-  > Sí existe atenuación en cable coaxial y puede ocurrir por las siguientes causas: 
+  > Sí, existe atenuación en cable coaxial, que puede deberse a diferentes mecanismos: 
   > 
   > - Radiación fuera del cable debido a un blindaje imperfecto.
   > - Pérdidas resistivas en los conductores del cable.
@@ -185,7 +185,7 @@ Comunicar datos a través de cualquier medio es, en esencia, un proceso que cons
 </center>
 
 > Una vez repasados estos conceptos, se procede a **clasificar la transmisión** propuesta en el esquema, el cual ilustra una transmisión de **tipo Simplex y de modo Síncrono**.  
-> - Es **Simplex** debido a que el flujo de datos se produce en un único sentido. Esto se ve evidenciado por la flecha unidireccional en la línea superior de comunicación. 
+> - Es **Simplex** debido a que el flujo de datos se produce en un único sentido. Esto se evidencia en la flecha unidireccional en la línea superior de comunicación. 
 > 
 > - Es **Síncrona** porque se puede observar que existe una línea adicional inferior, la cual está dedicada exclusivamente a transmitir una señal de reloj constante entre ambos módulos, asegurando así una base de tiempo común.
 
@@ -272,7 +272,7 @@ Con esto en mente, analizar el siguiente gráfico de ejemplo y responder las pre
 
 $$BER = \frac{N°\space de \space bits \space erroneos}{N°\space de \space bits \space transmitidos} $$
 
-> Una BER más **baja** indica una mayor calidad de transmisión y fiabilidad del canal, mientras que una BER **alta** sugiere interferencia, ruido o distorsión, lo que provoca retransmisiones de datos y reduce la velocidad efectiva.
+> Una BER más **baja** indica una mayor calidad de transmisión y fiabilidad del canal, mientras que una BER **alta** sugiere interferencia, ruido o distorsión y, en consecuencia, un menor nivel de confiabilidad del enlace.
 >
 > Teniendo en cuenta esto, se procede a evaluar las técnicas de modulación mencionadas en el inciso anterior:
 > 
@@ -358,6 +358,8 @@ A continuación instalaremos y construiremos una red simple en Packet Tracer. In
 
 **g.** Explorar las interfaces en ambas computadoras, y comprobar que existe conectividad entre ellas. Por ejemplo utilizar pings o trace routes, tomando nota de la IP de cada computadora. Documentar los resultados.
 
+> Para verificar la conectividad entre los equipos, se utilizó la herramienta Command Prompt para ejecutar el comando Ping desde la portátil hacia la computadora de escritorio y viceversa. Como se observa en la siguiente figura, se enviaron y recibieron 4 paquetes con un 0% de pérdida, lo que confirma la conectividad IP entre la computadora y la portátil.
+
 <center>
   <img src="https://hackmd.io/_uploads/HJ1TsH0wGe.png" width="800">
   <br>   <em>Figura 25: Verificación de Conectividad: Computadora y Portátil.</em>
@@ -403,11 +405,11 @@ A continuación instalaremos y construiremos una red simple en Packet Tracer. In
 
 ## Conclusiones
 
-La realización de este trabajo práctico permitió relacionar distintos conceptos fundamentales de las Comunicaciones de Datos, partiendo desde los fenómenos físicos asociados a la propagación de señales hasta su aplicación en una red inalámbrica simulada. El análisis de la onda electromagnética de la Consigna N°1, permitió vincular la longitud de onda y la frecuencia con su ubicación dentro del espectro electromagnético y, a su vez, con las aplicaciones correspondientes en sistemas de comunicaciones.
+La realización de este trabajo permitió repasar conceptos que, vistos por separado, pueden parecer bastante independientes, pero que en realidad forman parte de un mismo proceso de comunicación. A partir del análisis de la onda electromagnética, se pudo relacionar la frecuencia y la longitud de onda con la clasificación dentro del espectro electromagnético y con algunas de sus aplicaciones en sistemas de comunicaciones.
 
-Con respecto a las Consigna N°2 y N°3, el estudio de las señales digitales y de los modos de transmisión permitió comprender la importancia de la sincronización, la correcta interpretación temporal de los niveles lógicos y la elección de una técnica de modulación adecuada para transmitir información. En particular, el análisis de BPSK, ASK y FSK permitió observar que las características de la modulación influyen directamente en el comportamiento de la transmisión frente al ruido y, por lo tanto, en la tasa de errores de bit.
+Por otro lado, el estudio de las señales digitales permitió comprender la importancia de la sincronización y de los instantes adecuados para interpretar correctamente la información transmitida. A su vez, el análisis de las técnicas de modulación mostró que una señal digital no se transmite necesariamente de forma directa, sino que puede utilizarse para modificar distintas características de una señal portadora según las condiciones del medio. En este contexto, el análisis del BER permitió relacionar estas decisiones con la confiabilidad de la transmisión.
 
-Por último, la Consigna N°4, que implicaba la implementación realizada en Cisco Packet Tracer permitió comprobar experimentalmente algunos de los conceptos estudiados. La configuración de la red, la asignación de direcciones IP y las pruebas de conectividad permitieron verificar el funcionamiento del enlace, mientras que la modificación de la posición de los dispositivos mostró cómo la distancia y las condiciones de propagación pueden afectar la comunicación inalámbrica. De esta manera, el trabajo permitió vincular los conceptos teóricos estudiados con su comportamiento observable en un entorno práctico.
+Finalmente, la implementación de la red en Cisco Packet Tracer permitió llevar estos conceptos a una situación práctica. Las pruebas realizadas mostraron que, aunque los dispositivos se encuentren correctamente configurados, la comunicación inalámbrica también está condicionada por las características físicas del enlace. En particular, al alejar la portátil del punto de acceso, se observó una disminución de la potencia de señal hasta perder la conectividad. Esto permitió comprobar en la simulación la relación entre la atenuación y el alcance de una comunicación inalámbrica.
 
 ---
 
