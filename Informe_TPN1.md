@@ -125,23 +125,23 @@ $$f=\frac{c}{λ} = \frac{3 \cdot 10^8 \space [\frac{m}{s}]}{60 \cdot 10^{-3}\spa
   - ¿Afecta a las transmisiones por cable coaxial?
   > Sí, existe atenuación en cable coaxial, que puede deberse a diferentes mecanismos: 
   > 
-  > - Radiación fuera del cable debido a un blindaje imperfecto.
-  > - Pérdidas resistivas en los conductores del cable.
-  > - Absorción de señal en el dieléctrico del cable.
-  > - Reflexiones producidas por desadaptaciones de impedancia entre el cable y las terminaciones, o por discontinuidades a lo largo del enlace.
+  > - **Radiación** fuera del cable debido a un blindaje imperfecto.
+  > - **Pérdidas resistivas** en los conductores del cable.
+  > - Absorción de señal en el **dieléctrico del cable**.
+  > - **Reflexiones** producidas por **desadaptaciones de impedancia** entre el cable y las terminaciones, o por discontinuidades a lo largo del enlace.
   >
-  > En aplicaciones de banda ancha, la atenuación aumenta con la longitud del enlace y con la frecuencia de operación, por lo que en determinadas aplicaciones resulta necesario incorporar elementos de compensación o regeneración de la señal con la finalidad de evitar una disminución del rendimiento.
+  > En aplicaciones de banda ancha, la atenuación aumenta con la **longitud del enlace** y con la **frecuencia de operación**, por lo que en determinadas aplicaciones resulta necesario incorporar **elementos de compensación o regeneración de la señal** con la finalidad de evitar una disminución del rendimiento.
 
   - ¿Afecta a las transmisiones por fibra óptica?
   > De igual manera, se produce una pérdida de señal por fibra óptica.
   >  Entre los factores se puede mencionar:
-  >  - Absorción de energía luminosa dentro del material de la fibra.
-  >  - Dispersión causada por imperfecciones microscópicas en el vidrio.
-  >  - Pérdidas por flexión resultantes de un enrutamiento de cables inadecuado.
-  >  - Pérdidas por conectores y empalmes en los puntos de conexión.
-  >  - Influencias ambientales como el estrés, los cambios de temperatura y la contaminación.
+  >  - **Absorción de energía luminosa** dentro del material de la fibra.
+  >  - **Dispersión** causada por **imperfecciones microscópicas en el vidrio**.
+  >  - **Pérdidas por flexión** resultantes de un enrutamiento de cables inadecuado.
+  >  - **Pérdidas por conectores y empalmes** en los puntos de conexión.
+  >  - **Influencias ambientales** como el estrés, los cambios de temperatura y la contaminación.
   >  
-  > Sin embargo, la fibra óptica es **inmune a las interferencias electromagnéticas** y presenta una atenuación de la señal considerablemente menor en comparación a otros medios guiados. Estas características la convierten en el medio de transmisión guiado a larga distancia preferido, especialmente para los enlaces transoceánicos.
+  > Sin embargo, la fibra óptica es **inmune a las interferencias electromagnéticas** y presenta una **atenuación de la señal considerablemente menor** en comparación a otros medios guiados. Estas características la convierten en el **medio de transmisión guiado a larga distancia preferido**, especialmente para los enlaces transoceánicos.
  
 ---
 
@@ -176,7 +176,7 @@ Comunicar datos a través de cualquier medio es, en esencia, un proceso que cons
   <em>Figura 8: Transmisión Asíncrona.</em>
 </center>
 
-> - **Síncrona:** Los datos se transmiten utilizando una base de tiempo común entre emisor y receptor. Esto permite que el receptor logre determinar de manera precisa los instantes en los que debe muestrear los datos. Esta sincronización puede establecerse mediante una señal de reloj compartida o mediante mecanismos de recuperación de reloj a partir de la propia señal de datos.
+> - **Síncrona:** Los datos se transmiten utilizando una **base de tiempo común entre emisor y receptor**. Esto permite que el receptor logre determinar de manera precisa los instantes en los que debe **muestrear los datos**. Esta sincronización puede establecerse mediante una señal de reloj compartida o mediante mecanismos de recuperación de reloj a partir de la propia señal de datos.
 
 <center>
   <img src="https://hackmd.io/_uploads/r1d7M0awzg.png" width="550">
@@ -194,7 +194,7 @@ Comunicar datos a través de cualquier medio es, en esencia, un proceso que cons
 > El esquema presentado no es el adecuado para cumplir con esos requerimientos por los siguientes motivos:
 > - El diagrama ilustra un canal **estrictamente unidireccional**, por lo tanto, la transmisión de datos se encuentra limitada a un único sentido de transmisión. Si se desea lograr una comunicación bidireccional rápida y eficiente, el paradigma a seguir es el **Full-duplex** debido a que permite a ambas estaciones transmitir y recibir simultáneamente sin colisiones.
 > 
-> - El sistema utiliza una **línea de reloj** separada de la línea de datos. Si bien esta arquitectura permite una sincronización sencilla entre emisor y receptor, requiere un canal adicional para distribuir la referencia temporal. En sistemas de comunicación de alta velocidad pueden utilizarse técnicas de sincronización más eficientes, como la recuperación de reloj a partir de la propia señal de datos, evitando la necesidad de transmitir una línea de reloj independiente.
+> - El sistema utiliza una **línea de reloj** separada de la línea de datos. Si bien esta arquitectura permite una sincronización sencilla entre emisor y receptor, requiere un **canal adicional** para distribuir la referencia temporal. En sistemas de comunicación de alta velocidad pueden utilizarse **técnicas de sincronización más eficientes**, como la recuperación de reloj a partir de la propia señal de datos, evitando la necesidad de transmitir una línea de reloj independiente.
 
 **c.** En la expresión más simple de señal digital, podemos pensar que un nivel de tensión “1” representa un 1 digital, y un nivel de tensión “0” representa un 0 digital. Con esto en mente, analicemos el siguiente gráfico, que podría representar un tipo de comunicación UART:
 
@@ -218,18 +218,18 @@ En este caso estamos representando la transmisión del siguiente byte: “001000
 
 > En el ejemplo se puede observar que se tienen **marcas temporales** tanto en "medio" de un dato como en los instantes en los que se produce la transición entre los valores discretos. Teniendo en cuenta este comportamiento, se pueden evaluar los posibles momentos de medición:
 >
-> - **En los límites del intervalo temporal:** Si se tomara una muestra donde ocurre la transición, el valor de tensión leído resultaría ambiguo o intermedio, lo que podría generar un error en la interpretación del valor digital.
+> - **En los límites del intervalo temporal:** Si se tomara una muestra donde ocurre la transición, el valor de tensión leído resultaría **ambiguo o intermedio**, lo que podría generar un error en la interpretación del valor digital.
 > 
-> - **En el centro del intervalo temporal:** En este caso la transición ha finalizado y la señal se encuentra aproximadamente estabilizada en su nivel lógico correspondiente, ya sea alto o bajo. Por lo tanto, para determinar el valor digital de la señal garantizando una lectura confiable, la medición debe realizarse en las marcas temporales correspondientes al centro del intervalo temporal.
+> - **En el centro del intervalo temporal:** En este caso la transición ha finalizado y la señal se encuentra **aproximadamente estabilizada** en su nivel lógico correspondiente, ya sea alto o bajo. Por lo tanto, para determinar el valor digital de la señal garantizando una lectura confiable, la medición debe realizarse en las marcas temporales correspondientes al centro del intervalo temporal.
 
 ---
 
 ### Consigna N°3: 
 Investigar y resumir brevemente los motivos por los cuales no es conveniente transmitir de manera inalámbrica una señal escalonada, como las que vimos en los ejemplos.
 
-> Los motivos están bastante relacionados con la **atenuación** y la **respuesta del medio a las diferentes frecuencias**. Para notar ese efecto, resulta conveniente imaginar a la señal no como una simple forma de onda, sino como una **serie de componentes de Fourier**, donde las distintas componentes pueden experimentar diferentes niveles de atenuación y desplazamientos de fase, dando como resultado una señal distorsionada en el receptor. En aquellos medios que presentan dispersión, las diferentes componentes de frecuencia pueden propagarse a distintas velocidades, produciendo una **distorsión** de la señal que se recibe en el otro extremo.
+> Los motivos están bastante relacionados con la **atenuación** y la **respuesta del medio a las diferentes frecuencias**. Para notar ese efecto, resulta conveniente imaginar a la señal no como una simple forma de onda, sino como una **serie de componentes de Fourier**, donde las distintas componentes pueden experimentar diferentes niveles de atenuación y desplazamientos de fase, dando como resultado una **señal distorsionada en el receptor**. En aquellos medios que presentan dispersión, las diferentes componentes de frecuencia pueden propagarse a distintas velocidades, produciendo una **distorsión** de la señal que se recibe en el otro extremo.
 >
-> Debido a estos inconvenientes, **puede resultar problemático transmitir directamente una señal con un rango amplio de frecuencias**, como ocurre con las **ondas cuadradas**. En consecuencia, las diferentes componentes espectrales pueden experimentar distintos niveles de atenuación y fase, provocando **distorsión** de la señal en el receptor. Por este motivo, en sistemas inalámbricos se emplean técnicas de modulación que permiten adaptar la señal al canal de transmisión y utilizar una banda de frecuencias adecuada.
+> Debido a estos inconvenientes, **puede resultar problemático transmitir directamente una señal con un rango amplio de frecuencias**, como ocurre con las **ondas cuadradas**. En consecuencia, las diferentes componentes espectrales pueden experimentar distintos niveles de atenuación y fase, provocando **distorsión** de la señal en el receptor. Por este motivo, en sistemas inalámbricos se emplean **técnicas de modulación** que permiten adaptar la señal al canal de transmisión y utilizar una banda de frecuencias adecuada.
 
 Con esto en mente, analizar el siguiente gráfico de ejemplo y responder las preguntas a continuación.
 
@@ -243,7 +243,7 @@ Con esto en mente, analizar el siguiente gráfico de ejemplo y responder las pre
 
 > Se puede observar que la señal mantiene constante su amplitud y frecuencia, pero experimenta una inversión en su fase cada que se produce la transición entre los niveles lógicos. Por lo tanto, se trata de la **Modulación por Desplazamiento de Fase (PSK)**, una técnica de modulación digital que consiste en modificar la fase de la señal portadora entre un número de valores discretos.
 >
-> Particularmente, la figura muestra un ejemplo del sistema más simple, conocido como **desplazamiento de fase binario (BPSK)**, que utiliza dos fases para representar los dos dígitos binarios. En ese sentido, se utilizan dos estados de fase separados 180°, y cada estado se asigna a uno de los dos valores binarios dependiendo de la convención de mapeo adoptada.
+> Particularmente, la figura muestra un ejemplo del sistema más simple, conocido como **desplazamiento de fase binario (BPSK)**, que utiliza dos fases para representar los dos dígitos binarios. En ese sentido, se utilizan **dos estados de fase separados 180°**, y cada estado se asigna a uno de los dos valores binarios dependiendo de la convención de mapeo adoptada.
 
 **b.** ¿Cómo se vería la siguiente señal digital modulada?
 
@@ -256,9 +256,10 @@ Con esto en mente, analizar el siguiente gráfico de ejemplo y responder las pre
 **c.** ¿Qué otras técnicas de modulación basadas en los mismos principios existen?
 
 > Dado que en el inciso anterior se abordó la modificación de la fase, las otras técnicas fundamentales que alteran los parámetros restantes son:
-> - **Amplitude Shift Keying (ASK):** Modula la amplitud de la señal portadora para representar datos binarios. Las variaciones de amplitud significan diferentes estados digitales (0 y 1). Por ejemplo, si se transmite 1 bit: la señal se emite cuando la información a transmitir es un 1 y no se emite cuando lo que se quiere transmitir es un 0.
 > 
-> - **Frequency Shift Keying (FSK):** Altera la frecuencia de la señal portadora para transmitir información digital. Utiliza diferentes frecuencias para representar valores binarios, y cada frecuencia denota un estado digital específico. Por ejemplo, si se transmite 1 bit: se usa una frecuencia de la portadora para indicar que la información transmitida es un 0 y otra frecuencia diferente para indicar que el bit transmitido es un 1.
+> - **Amplitude Shift Keying (ASK):** Modula la amplitud de la señal portadora para representar datos binarios. Las variaciones de amplitud significan diferentes estados digitales (0 y 1). Por ejemplo, si se **transmite 1 bit**: la señal se **emite** cuando la información a transmitir es un 1 y **no se emite** cuando lo que se quiere transmitir es un 0.
+> 
+> - **Frequency Shift Keying (FSK):** Altera la frecuencia de la señal portadora para transmitir información digital. Utiliza **diferentes frecuencias para representar valores binarios**, y cada frecuencia denota un estado digital específico. Por ejemplo, si se **transmite 1 bit**: se usa **una frecuencia de la portadora** para indicar que la información transmitida es un 0 y **otra frecuencia diferente** para indicar que el bit transmitido es un 1.
 
 <center>
   <img src="https://hackmd.io/_uploads/SJAArM0wfg.png" width="350">
@@ -268,7 +269,7 @@ Con esto en mente, analizar el siguiente gráfico de ejemplo y responder las pre
 
 **d.** ¿Qué es el Bit Error Rate (BER)?. En términos de BER, ¿Cuál de las técnicas de modulación presentadas anteriormente tiene mejores prestaciones?
 
-> El **Bit Error Rate (BER)** es una medida de la cantidad de bits recibidos incorrectamente respecto del total de bits transmitidos durante un intervalo determinado. Por lo tanto, permite evaluar el desempeño y la confiabilidad de un sistema de comunicación.
+> El **Bit Error Rate (BER)** es una medida de la cantidad de bits recibidos incorrectamente respecto del total de bits transmitidos durante un intervalo determinado. Por lo tanto, permite evaluar el **desempeño y la confiabilidad de un sistema de comunicación**.
 
 $$BER = \frac{N°\space de \space bits \space erroneos}{N°\space de \space bits \space transmitidos} $$
 
@@ -276,11 +277,11 @@ $$BER = \frac{N°\space de \space bits \space erroneos}{N°\space de \space bits
 >
 > Teniendo en cuenta esto, se procede a evaluar las técnicas de modulación mencionadas en el inciso anterior:
 > 
-> - **ASK:** El ruido afecta directamente a la amplitud de la señal. Por lo tanto, la información es altamente susceptible al ruido y a las interferencias, recordando que, para esta técnica, los datos se transportan modificando la amplitud de la señal portadora.
+> - **ASK:** El ruido afecta directamente a la amplitud de la señal. Por lo tanto, la información es **altamente susceptible al ruido y a las interferencias**, recordando que, para esta técnica, los datos se transportan modificando la amplitud de la señal portadora.
 > 
-> - **FSK:** La información se representa mediante diferentes frecuencias de la señal portadora. En determinadas condiciones de ruido, este esquema puede presentar una mayor robustez que ASK, ya que la información no depende directamente del nivel de amplitud recibido.
+> - **FSK:** La información se representa mediante diferentes frecuencias de la señal portadora. En determinadas condiciones de ruido, este esquema puede presentar una **mayor robustez que ASK**, ya que la información no depende directamente del nivel de amplitud recibido.
 > 
-> - **PSK:** La información se codifica mediante diferentes estados de fase de la señal portadora. En particular, BPSK utiliza dos fases separadas 180°, lo que proporciona una separación significativa entre los dos estados de señal y permite obtener un buen desempeño frente al ruido. Bajo condiciones equivalentes de canal y relación señal-ruido, BPSK presenta una BER particularmente baja.
+> - **PSK:** La información se codifica mediante diferentes estados de fase de la señal portadora. En particular, **BPSK** utiliza dos fases separadas 180°, lo que proporciona una **separación significativa entre los dos estados de señal** y permite obtener un **buen desempeño frente al ruido**. Bajo condiciones equivalentes de canal y relación señal-ruido, BPSK presenta una **BER particularmente baja**.
 ---
 
 ### Consigna N°4: 
@@ -358,7 +359,7 @@ A continuación instalaremos y construiremos una red simple en Packet Tracer. In
 
 **g.** Explorar las interfaces en ambas computadoras, y comprobar que existe conectividad entre ellas. Por ejemplo utilizar pings o trace routes, tomando nota de la IP de cada computadora. Documentar los resultados.
 
-> Para verificar la conectividad entre los equipos, se utilizó la herramienta Command Prompt para ejecutar el comando Ping desde la portátil hacia la computadora de escritorio y viceversa. Como se observa en la siguiente figura, se enviaron y recibieron 4 paquetes con un 0% de pérdida, lo que confirma la conectividad IP entre la computadora y la portátil.
+> Para **verificar la conectividad** entre los equipos, se utilizó la herramienta **Command Prompt** para ejecutar el **comando ping** desde la portátil hacia la computadora de escritorio y viceversa. Como se observa en la siguiente figura, se enviaron y recibieron 4 paquetes con un 0% de pérdida, lo que **confirma la conectividad IP** entre la computadora y la portátil.
 
 <center>
   <img src="https://hackmd.io/_uploads/HJ1TsH0wGe.png" width="800">
@@ -367,45 +368,45 @@ A continuación instalaremos y construiremos una red simple en Packet Tracer. In
 
 **h.** Una vez comprobada la conexión, cambiaremos la vista a “física”. Y navegaremos hacia la región cerca de la “oficina” donde tenemos nuestro setup. Deberíamos ver una representación de la señal Wi-Fi y los límites de la misma. Colocar una notebook, conectarla a la red wifi, y probar la conexión con alguna computadora dentro de la oficina desde las posiciones que se muestran a continuación. Documentar los resultados y elaborar conclusiones acerca de lo medido.
 
-> Primeramente, se posiciona la portátil dentro del área violeta pero lo más cercano al borde. De acuerdo con el fenómeno de la atenuación estudiado en las consignas anteriores, es de esperar que la intensidad de señal en este punto sea baja.
+> Primeramente, se posiciona la portátil **dentro del área violeta** pero lo más cercano al borde. De acuerdo con el fenómeno de la atenuación estudiado en las consignas anteriores, es de esperar que la **intensidad de señal en este punto sea baja**.
 > 
-> Efectivamente, se puede observar que el indicador de intensidad de la señal cayó a un 2%, confirmando el análisis realizado. 
+> Efectivamente, se puede observar que el indicador de intensidad de la señal **cayó a un 2%**, confirmando el análisis realizado. 
 
 <center>
   <img src="https://hackmd.io/_uploads/Sk7PCYAPMe.png" width="800">
   <br>   <em>Figura 26: Portátil dentro del área.</em>
 </center>
 
-> Sin embargo, pese a que la señal disminuyó, la portátil continúa estando conectada a la red. Esto se evidencia aplicando el comando ping desde la portátil hacia la dirección IP de la computadora.
+> Sin embargo, pese a que la señal disminuyó, **la portátil continúa estando conectada a la red**. Esto se evidencia aplicando el **comando ping** desde la portátil hacia la dirección IP de la computadora.
 > 
 <center>
   <img src="https://hackmd.io/_uploads/SyGlycAwMe.png" width="400">
   <br>   <em>Figura 27: Verificación de Conectividad: Computadora-Portátil.</em>
 </center>
 
-> La siguiente situación implica ubicar la portátil fuera del área violeta y lo que se puede anticipar es que la señal recibida, para este punto, sea suficientemente baja como para que el enlace deje de ser viable.
+> La siguiente situación implica ubicar la portátil **fuera del área violeta** y lo que se puede anticipar es que la señal recibida, para este punto, sea **suficientemente baja** como para que el enlace deje de ser **viable**.
 >
-> Como se puede apreciar en la siguiente figura, la red no logra ser reconocida por la portátil, por lo tanto, se perdió la conectividad.
+> Como se puede apreciar en la siguiente figura, la red no logra ser reconocida por la portátil, por lo tanto, se **perdió la conectividad**.
 
 <center>
   <img src="https://hackmd.io/_uploads/SylsRFAwzl.png" width="800">
   <br>   <em>Figura 28: Portátil fuera del área.</em>
 </center>
 
-> A fin de corroborar lo anterior, nuevamente, se realiza el comando ping hacia la dirección IP de la computadora, obteniéndose lo siguiente. En consecuencia, no es posible establecer comunicación IP entre la computadora y la portátil desde esta ubicación.
+> A fin de corroborar lo anterior, nuevamente, se realiza el **comando ping** hacia la dirección IP de la computadora, obteniéndose lo siguiente. En consecuencia, **no es posible establecer comunicación IP** entre la computadora y la portátil desde esta ubicación.
 
 <center>
   <img src="https://hackmd.io/_uploads/HyqHJ90wfg.png" width="400">
   <br>   <em>Figura 29: Verificación de Pérdida de Conectividad: Computadora-Portátil.</em>
 </center>
 
-> En conclusión, durante la simulación se ha podido evidenciar que la conectividad inalámbrica no depende únicamente de la configuración lógica de la red, sino que, al aumentar la distancia respecto del punto de acceso, la potencia de señal recibida disminuye y, finalmente, el enlace deja de ser viable. Este comportamiento es consistente con la atenuación de la potencia recibida durante la propagación.
+> En conclusión, durante la simulación se ha podido evidenciar que la **conectividad inalámbrica** no depende únicamente de la **configuración lógica de la red**, sino que, al aumentar la distancia respecto del punto de acceso, la potencia de señal recibida disminuye y, finalmente, **el enlace deja de ser viable**. Este comportamiento es consistente con la atenuación de la potencia recibida durante la propagación.
 
 ---
 
 ## Conclusiones
 
-La realización de este trabajo permitió repasar conceptos que, vistos por separado, pueden parecer bastante independientes, pero que en realidad forman parte de un mismo proceso de comunicación. A partir del análisis de la onda electromagnética, se pudo relacionar la frecuencia y la longitud de onda con la clasificación dentro del espectro electromagnético y con algunas de sus aplicaciones en sistemas de comunicaciones.
+La realización de este trabajo permitió repasar conceptos que forman parte del proceso de las comunicaciones. A partir del análisis de la onda electromagnética, se pudo relacionar la frecuencia y la longitud de onda con la clasificación dentro del espectro electromagnético y con algunas de sus aplicaciones en sistemas de comunicaciones.
 
 Por otro lado, el estudio de las señales digitales permitió comprender la importancia de la sincronización y de los instantes adecuados para interpretar correctamente la información transmitida. A su vez, el análisis de las técnicas de modulación mostró que una señal digital no se transmite necesariamente de forma directa, sino que puede utilizarse para modificar distintas características de una señal portadora según las condiciones del medio. En este contexto, el análisis del BER permitió relacionar estas decisiones con la confiabilidad de la transmisión.
 
