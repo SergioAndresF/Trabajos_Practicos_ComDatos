@@ -187,12 +187,19 @@ Vamos ahora a subir una capa y observar el transporte de información mediante T
 > - **Campo Reservado (6 bits):** Inicializado con ceros.
 >
 > - **Banderas de Control (8 bits):** Son bits utilizados para indicar diferentes eventos o acciones relacionadas con el estado de la conexión. Entre las principales se encuentran:
+> 
 > **SYN:** Permite sincronizar los números de secuencia y participar en el establecimiento de la conexión.
+> 
 > **ACK:** Indica si el campo Acknowledgment Number es válido.
+> 
 > **FIN:** Indica que el emisor no posee más datos para transmitir.
+> 
 > **RST:** Permite reiniciar o abortar una conexión.
+> 
 > **PSH:** Solicita que los datos sean entregados al proceso receptor sin esperar una acumulación adicional.
+> 
 > **URG:** Indica si el campo Urgent Pointer contiene información significativa.
+> 
 > **ECE y CWR:** Están relacionados con mecanismos de notificación de congestión.
 >
 > - **Ventana (16 bits):** Indica la cantidad de datos que el receptor está dispuesto a aceptar a partir del número de secuencia indicado en el campo de confirmación (Acknowledgment Number). Además, permite implementar el control de flujo, evitando que el emisor transmita una cantidad de datos superior a la que el receptor puede almacenar.
@@ -213,8 +220,11 @@ Vamos ahora a subir una capa y observar el transporte de información mediante T
 
 **c.** Explicar el Three y Four way handshake en TCP.
 > - **Three-Way Handshake (Establecimiento de la Conexión):** Su objetivo consiste en establecer la conexión y permitir que ambos extremos logren sincronizar sus números de secuencia iniciales, además de confirmar que existe comunicación en ambas direcciones. Recibe este nombre debido a que el proceso consta de las siguientes tres vías:
+> 
 > **1.-** El cliente envía un segmento con la bandera SYN activada y un número de secuencia inicial `x`. Con esto, el cliente está indicando su intención de establecer una conexión y también comunicando el número de secuencia a partir del cual comenzará su transmisión.
+> 
 > **2.-** El servidor responde con las banderas SYN y ACK activadas y establece su propio número de secuencia inicial `y`. Luego, mediante el campo de confirmación, indica que recibió correctamente el SYN del cliente y que espera el próximo número de secuencia, es decir, `x+1`.
+> 
 > **3.-** Finalmente, el cliente envía un segmento con la bandera ACK activada, indicando mediante el campo de confirmación que espera recibir `y+1` como próximo número de secuencia del servidor. Una vez que se haya completado este intercambio, ambos extremos han sincronizado sus números de secuencia y la conexión puede pasar al estado ESTABLISHED, permitiendo comenzar la transferencia de datos.
 > 
 <center>
@@ -224,9 +234,13 @@ Vamos ahora a subir una capa y observar el transporte de información mediante T
 </center>
 
 > - **Four-Way Handshake (Cierre de la Conexión):** Una vez que uno de los extremos haya concluido con la transmisión de los datos, TCP no necesariamente cierra de manera simultánea las dos direcciones de la comunicación; sino que como TCP es un protocolo full-duplex, cada extremo puede indicar de manera independiente que ya no posee más datos para transmitir. La secuencia normal de cierre puede representarse mediante cuatro segmentos:
+> 
 > **1.-** Uno de los extremos envía un segmento con la bandera FIN activada para indicar que no posee más datos para transmitir en esa dirección.
+> 
 > **2.-** El otro extremo confirma la recepción mediante un ACK. Sin embargo, cabe aclarar que esto no significa que la comunicación haya finalizado completamente, ya que existe la posibilidad de que el segundo extremo todavía tenga datos pendientes de transmitir.
-> **3.-** Una vez que el segundo extremo termina su transmisión, envía también un segmento con la bandera FIN. 
+> 
+> **3.-** Una vez que el segundo extremo termina su transmisión, envía también un segmento con la bandera FIN.
+>  
 > **4.-** Finalmente, el primer extremo responde con un ACK, completando el cierre de la conexión.
 
 <center>
