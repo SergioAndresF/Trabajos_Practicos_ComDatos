@@ -303,9 +303,13 @@ Configurar wireshark para “sniffear” la conexión que vamos a hacer. Monitor
 > - **Capa de Red (Internet Protocol Version 4):** Este encabezado está a cargo del enrutamiento lógico. Se puede observar que tanto la IP de origen (Src) como la de destino (Dst) son `127.0.0.1`, lo cual es correcto ya que el mismo nodo cumple con ambos roles. Asimismo, se puede notar que se indica el protocolo de capa superior encapsulado es TCP (6).
 > 
 > - **Capa de Transporte (Transmission Control Protocol):** Desplegando esta cabecera, se observan los metadatos que controlan la conexión y que se averiguaron anteriormente, entre ellos podemos observar:
+> 
 > **Puertos:** Define el puerto de origen dinámico `65002` y el puerto de destino del servidor `64885`.
+> 
 > **Secuencia y Acuse:** Se observa un Sequence Number: 1 y un Acknowledgment Number: 1 (valores relativos de la sesión).
+> 
 > **Banderas (Flags):** Están configuradas como 0x018 (PSH, ACK). La bandera PSH solicita que los datos pendientes sean entregados a la aplicación receptora tan pronto como sea posible.
+> 
 > **Ventana (Window):** El tamaño de la ventana de recepción se indica en `10233`.
 > 
 > - **Carga Útil (Data / Payload):** Es el mensaje en ASCII transmitido. En la parte inferior se encuentra el campo de datos con una longitud de 5 bytes. Observando la representación hexadecimal de esta carga útil, se identifica la secuencia `48 6f 6c 61 21`, la cual al ser decodificada en ASCII revela la cadena de texto `Hola!`.
