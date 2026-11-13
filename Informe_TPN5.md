@@ -6,8 +6,8 @@
 
 ---
 
-* **Grupo:** Group Not Found :(
-* **Profesores:** Miguel Angel Solinas y Santiago Martin Henn
+- **Grupo:** Group Not Found :(
+- **Profesores:** Miguel Angel Solinas y Santiago Martin Henn
 
 ---
 
@@ -19,13 +19,13 @@
 
 ---
 ## Introducción
-En el presente trabajo práctico de laboratorio se tiene como objetivo principal analizar y comprender el funcionamiento de los protocolos fundamentales que operan en las capas de Red y Transporte del modelo TCP/IP. En el mismo se desarrollan actividades que contemplan el uso de herramientas de diagnóstico y del analizador de tráfico Wireshark.
+El presente Trabajo Práctico de Laboratorio tiene como objetivo principal analizar y comprender el funcionamiento de los protocolos fundamentales que operan en las capas de Red y Transporte del modelo TCP/IP. Para ello, se desarrollan actividades prácticas que contemplan el uso de comandos de diagnóstico de red y del analizador de tráfico Wireshark.
 
-En primer lugar, se estudia el protocolo ICMP y su relación con el enrutamiento IP por medio de la herramienta ping. Seguidamente, se aborda el protocolo ARP, comprendiendo su rol importante en la resolución de direcciones lógicas (IP) a direcciones físicas (MAC) dentro de redes locales. 
+En primer lugar, se estudia el protocolo ICMP y su relación con el enrutamiento IP por medio de la herramienta `ping`. Seguidamente, se aborda el protocolo ARP, comprendiendo su rol crítico en la resolución de direcciones lógicas (IP) a direcciones físicas (MAC) dentro de redes locales. 
 
-En la tercera etapa del laboratorio, se realiza un análisis comparativo de los protocolos de transporte TCP y UDP utilizando la herramienta ncat, permitiendo observar las diferencias entre un modelo orientado a la conexión y uno de mejor esfuerzo. 
+En la tercera etapa del laboratorio, se realiza un análisis comparativo de los protocolos de transporte TCP y UDP utilizando la herramienta `ncat`, lo que permite observar a nivel de datagramas las diferencias entre un modelo orientado a la conexión y uno de mejor esfuerzo. 
 
-Finalmente, la cuarta etapa introduce la programación de sockets en Python, permitiendo vincular directamente las llamadas al sistema operativo (API POSIX) con la generación y recepción de segmentos en la red.
+Finalmente, la cuarta etapa introduce la programación de *sockets* en Python, permitiendo vincular directamente las llamadas al sistema operativo (API POSIX) con la generación y recepción de segmentos en la red.
 
 ---
 ## Consignas
@@ -51,7 +51,7 @@ Empezamos con la herramienta de red más conocida: ping. La vamos a usar como "g
 **c.** ¿Qué hace ping? ¿Qué son un Echo Request y un Echo Reply? ¿Qué campos de ICMP permiten distinguirlos?
 > El **comando ping** es una herramienta de software que verifica la conectividad a nivel de red entre dos dispositivos y, además, mide el tiempo de ida y vuelta (RTT) de los paquetes.
 >
-> Este programa genera un mensaje ICMP conocido como **Solicitud de Eco (Eco Request)** dirigido al host especificado como destino. Si el host de destino está encendido y conectado, al ver la solicitud de eco, devuelve una respuesta conocida como **Respuesta de Eco (Eco Reply).**
+> Este programa genera un mensaje ICMP conocido como **Solicitud de Eco (Echo Request)** dirigido al host especificado como destino. Si el host de destino está encendido y conectado, al ver la solicitud de eco, devuelve una respuesta conocida como **Respuesta de Eco (Echo Reply).**
 >
 > Estos mensajes se distinguen leyendo el **campo Type (Tipo)** del encabezado ICMP. De acuerdo con la lista mostrada anteriormente, el Echo Request se identifica con el **Tipo 8**, mientras que el Echo Reply se identifica con el **Tipo 0.**
 
@@ -261,7 +261,7 @@ En el punto anterior la trama Ethernet ya tenía una MAC destino. Pero ping solo
 </center>
 
 **c.** ¿Qué es la caché ARP y por qué existe?
-> La **caché ARP o tabla ARP** es una estructura de datos dinámica alojada en la memoria de cada host o router, la cual **almacena de manera temporal** los mapeos recientes entre direcciones IP y MAC. Con respecto al tiempo típico de caducidad de una entrada, este resulta ser de 20 minutos desde el momento que se incluye la entrada en la tabla ARP.
+> La **caché ARP o tabla ARP** es una estructura de datos dinámica alojada en la memoria de cada host o router, la cual **almacena de manera temporal** los mapeos recientes entre direcciones IP y MAC. Con respecto al tiempo típico de caducidad de una entrada, este suele ser de un período corto (típicamente entre 1 y unos pocos minutos, dependiendo del sistema operativo) desde el momento que se incluye en la tabla ARP.
 > 
 > Ahora bien, esta tabla surge por una **cuestión de eficiencia de red** debido a que evita que los hosts inunden el medio compartido con constantes ARP Requests cada vez que necesitan transmitir un datagrama, recordando que estos mensajes son de difusión (Broadcast). En ese sentido, al guardar las resoluciones recientes en una caché, se ahorra ancho de banda, se reduce la carga de procesamiento en los demás hosts y se minimiza la latencia en el envío de los paquetes.
 
@@ -300,7 +300,7 @@ En el punto anterior la trama Ethernet ya tenía una MAC destino. Pero ping solo
 > - **Dirección IP:** `192.168.0.55`
 > - **Dirección MAC:** `1c:ce:51:67:e2:c3`
 
-> Habiendo identificado la dirección IP de este equipo, se retorna al equipo inicial y desde este mismo se realiza el comando ping tomando como host de destino la dirección IP obtenida. Posteriormente, se consulta nuevamente la tabla ARP mediante `arp -a` para observar si hubo modificaciones.
+> Habiendo identificado la dirección IP de este equipo, se retorna al equipo inicial y desde este mismo se realiza el comando `ping` tomando como host de destino la dirección IP obtenida. Posteriormente, se consulta nuevamente la tabla ARP mediante `arp -a` para observar si hubo modificaciones.
 > 
 <center>
   <img src="https://hackmd.io/_uploads/Hkw-aD0pMe.png" width="700">
@@ -358,7 +358,7 @@ Analizar un ARP Request y su ARP Reply. Para cada uno completar una tabla como l
 > A raíz de lo anterior, se puede decir que la trama ARP **no utiliza el protocolo IP (Capa 3)** para transportarse, sino que viaja encapsulada directamente como **carga útil** de la trama Ethernet (Capa 2), lo que demuestra que es un protocolo de soporte enfocado en la red local física. En ese sentido, queda evidenciado que ARP opera justo en la **frontera entre la Capa 2 y la Capa 3.**
 
 **c.** Con la Opción A (IP inexistente): ¿cuántos ARP Request aparecieron? ¿Hubo Reply? ¿Apareció algún ICMP Echo Request en la captura? Expliquen por qué.
-> Para este inciso, se ejecutó el comando ping hacia una direccion IP inexistente, se tomó la dirección `192.168.0.250`. 
+> Para este inciso, se ejecutó el comando `ping` hacia una direccion IP inexistente, se tomó la dirección `192.168.0.250`. 
 > 
 <center>
   <img src="https://hackmd.io/_uploads/Sy9NtoAaGg.png" width="700">
@@ -377,7 +377,7 @@ Analizar un ARP Request y su ARP Reply. Para cada uno completar una tabla como l
 > Por otro lado, si se aplica el filtro `arp || icmp` se puede notar que tampoco aparece ningún **ICMP Echo Request** en la captura. El motivo se encuentra en el bloqueo de encapsulación, y es que al **fallar la resolución ARP**, la computadora jamás pudo conocer la MAC de destino. Entonces, sin esa dirección física, resultó **imposible construir el encabezado de la trama Ethernet** y, por consiguiente, el paquete ICMP nunca abandonó la memoria de la PC hacia el medio físico y fue descartado internamente por el sistema operativo.
 
 **d.** Volvieron a hacer ping al mismo destino un minuto después: ¿apareció ARP de nuevo? Revisen la caché ARP. ¿Qué ventaja tiene la caché y qué problema podría causar si una entrada quedara vieja?
-> Al repetir el comando ping hacia el mismo destino, **no apareció nuevo tráfico ARP** en la captura. Esto se debe a que el sistema operativo almacenó temporalmente la asociación en su caché ARP local durante el primer intercambio.
+> Al repetir el comando `ping` hacia el mismo destino, **no apareció nuevo tráfico ARP** en la captura. Esto se debe a que el sistema operativo almacenó temporalmente la asociación en su caché ARP local durante el primer intercambio.
 >
 > Lo anterior tiene como ventaja proporcionar **gran eficiencia de red** puesto que se evita saturar el medio compartido con mensajes repetitivos de Broadcast, se reduce la carga de procesamiento en las tarjetas de red de los demás hosts y se logra minimizar drásticamente la latencia en las comunicaciones subsecuentes.
 >
@@ -553,7 +553,7 @@ Un socket es el "punto final" de una comunicación que el sistema operativo le e
 Ahora hacemos nosotros lo que hacía ncat. Los scripts están resueltos para que puedan concentrarse en relacionar cada línea con lo que ocurre en la red.
 
 **a.** Leer el código del servidor:
-> 
+> El script `tcp_server.py` define la inicialización pasiva de un servidor TCP utilizando la API de Sockets POSIX. Estructuralmente, reserva un conector de red (`socket()`), lo asocia explícitamente a la interfaz local y al puerto 12000 (`bind()`), y le indica al sistema operativo que lo mantenga en estado de escucha (`listen()`). Estas tres operaciones modifican únicamente estructuras de memoria internas del SO sin generar tráfico. El servidor recién interactúa con la red cuando bloquea su ejecución en `accept()` aguardando el *Three-Way Handshake* entrante. Una vez conectada la sesión, procesa el flujo de bytes (`recv()` y `sendall()`) y libera los recursos de red (`close()`).
 
 <center>
   <img src="https://hackmd.io/_uploads/Hk4W8UMAfx.png" width="500">
@@ -569,7 +569,7 @@ Ahora hacemos nosotros lo que hacía ncat. Los scripts están resueltos para que
 
 
 **b.** Leer el código del cliente:
-> 
+> El script `tcp_client.py` implementa un cliente TCP que realiza una apertura activa. A diferencia del servidor, este código omite la llamada a `bind()`, delegando al sistema operativo la asignación de un puerto origen efímero. La función crítica de este script es `connect()`, la cual invoca a la pila TCP/IP del kernel para iniciar la transmisión en la red disparando el segmento inicial `[SYN]`. Tras establecer la sesión, el script codifica el mensaje de texto a bytes y lo transmite (`sendall()`), aguarda la respuesta del servidor (`recv()`) y finaliza ordenadamente la conexión (`close()`), lo que desencadena el envío del segmento `[FIN, ACK]`.
 
 <center>
   <img src="https://hackmd.io/_uploads/rJwwLIfRzl.png" width="600">
@@ -608,28 +608,28 @@ Ahora hacemos nosotros lo que hacía ncat. Los scripts están resueltos para que
 
 | Llamada | ¿Dónde se ejecuta? | ¿Genera tráfico? | Segmentos que observan |
 | :--- | :--- | :--- | :--- |
-| socket() | servidor y cliente | No | Operación local en memoria |
-| bind() | servidor | No | Asociación lógica interna, sin tráfico de red |
-| listen() | servidor | No | Cambio de estado pasivo dentro del SO |
-| connect() | cliente | Sí | Paquetes 37 `[SYN]`, 38 `[SYN, ACK]` y 39 `[ACK]` (Three-Way Handshake) | 
-| accept() | servidor | No | El SO le entrega la conexión ya establecida al programa |
-| sendall() | servidor | Sí | Paquete 40 `[PSH, ACK]` (envío del cliente) y Paquete 42 `[PSH, ACK]` (respuesta del servidor) |
-| recv() | servidor | Sí (indirectamente) | Paquete 41 `[ACK]` (el SO del servidor confirma recepción) y Paquete 43 `[ACK]` (el SO del cliente confirma recepción) |
-| close() | ambos | Sí | Paquetes 44 `[FIN, ACK]`, 45 `[FIN, ACK]` y 46 `[ACK]` (Connection Teardown) |
+| `socket()` | servidor y cliente | No | Operación local en memoria |
+| `bind()` | servidor | No | Asociación lógica interna, sin tráfico de red |
+| `listen()` | servidor | No | Cambio de estado pasivo dentro del SO |
+| `connect()` | cliente | Sí | Paquetes 37 `[SYN]`, 38 `[SYN, ACK]` y 39 `[ACK]` (Three-Way Handshake) | 
+| `accept()` | servidor | No | El SO le entrega la conexión ya establecida al programa |
+| `sendall()` | servidor y cliente | Sí | Paquete 40 `[PSH, ACK]` (envío del cliente) y Paquete 42 `[PSH, ACK]` (respuesta del servidor) |
+| `recv()` | servidor y cliente | Sí (indirectamente) | Paquete 41 `[ACK]` (el SO del servidor confirma recepción) y Paquete 43 `[ACK]` (el SO del cliente confirma recepción) |
+| `close()` | ambos | Sí | Paquetes 44 `[FIN, ACK]`, 45 `[FIN, ACK]` y 46 `[ACK]` (Connection Teardown) |
 
 
 ---
 ## Conclusiones
 A través de este trabajo práctico se aplicaron los conceptos teóricos fundamentales de la arquitectura TCP/IP. A modo de resumir lo realizado:
 
-- En la Capa de Red se corroboró que ICMP actúa como un mecanismo de control y diagnóstico, evidenciando, por ejemplo, cómo la expiración del campo TTL en los routers previene bucles infinitos de enrutamiento. Asimismo, el análisis del protocolo ARP demostró la necesidad de resolver direcciones lógicas a físicas mediante mensajes de difusión (Broadcast) antes de que cualquier datagrama pueda ser encapsulado en una trama Ethernet y transmitido al medio local.
-- En la Capa de Transporte La comparación directa entre TCP y UDP permitió poner en evidencia sus diferencias arquitectónicas. Por un lado, UDP prioriza la velocidad, y para ello, omite la retención de estado y el acuse de recibo. Por otro lado, TCP garantiza una entrega confiable y ordenada mediante el establecimiento previo de una sesión (Three-Way Handshake), el control de la transmisión (Flags y Window Size) y el cierre estructurado (Four-Way Handshake). Además, se pudo observar cómo ambos manejan las excepciones de puertos cerrados de manera distinta: en el caso de UDP, apoyándose en mensajes ICMP de la capa inferior y en el caso de TCP, en sus propias banderas de control (RST).
-- Finalmente, en relación con la Interfaz de Programación (Sockets), la implementación de un cliente y servidor en Python permitió desmitificar la abstracción del sistema operativo. Se logró identificar qué instrucciones de código desencadenan tráfico real en la red, como por ejemplo, connect() o close(), y cuáles son simples configuraciones locales de memoria, como bind() o listen(), consolidándose así la comprensión del flujo completo de datos desde la aplicación del usuario hasta el medio físico.
+- En la Capa de Red se corroboró que ICMP actúa como un mecanismo de control y diagnóstico, evidenciando, por ejemplo, cómo la expiración del campo TTL en los routers previene bucles infinitos de enrutamiento. Asimismo, el análisis del protocolo ARP demostró la necesidad ineludible de resolver direcciones lógicas a físicas mediante mensajes de difusión (*Broadcast*) antes de que cualquier datagrama pueda ser encapsulado en una trama Ethernet y transmitido al medio local.
+- En la Capa de Transporte, la comparación directa entre TCP y UDP permitió poner en evidencia sus diferencias arquitectónicas. Por un lado, UDP prioriza la velocidad, y para ello, omite la retención de estado y el acuse de recibo. Por otro lado, TCP garantiza una entrega confiable y ordenada mediante el establecimiento previo de una sesión (*Three-Way Handshake*), el control de la transmisión (*Flags* y *Window Size*) y el cierre estructurado (*Four-Way Handshake*). Además, se pudo observar cómo ambos manejan las excepciones de puertos cerrados de manera distinta: en el caso de UDP, apoyándose en mensajes ICMP de la capa inferior y en el caso de TCP, en sus propias banderas de control (RST).
+- Finalmente, en relación con la Interfaz de Programación (Sockets), la implementación de un cliente y servidor en Python permitió comprender en profundidad cómo el sistema operativo gestiona internamente las comunicaciones. Se logró identificar qué instrucciones de código desencadenan tráfico real en la red, como por ejemplo `connect()` o `close()`, y cuáles son simples configuraciones locales de memoria, como `bind()` o `listen()`, consolidándose así la comprensión del flujo completo de datos desde la aplicación del usuario hasta el medio físico.
 
 ---
 ## Referencias
-- Kurose, J. F., & Ross, K. W. (2021). Computer networking: A top-down approach (8va ed.). Pearson.
-- Tanenbaum, A. S., Feamster, N., & Wetherall, D. J. (2021). Computer networks (6ta ed.). Pearson.
-- Postel, J. (1980). User datagram protocol (RFC 768). Internet Engineering Task Force. https://doi.org/10.17487/RFC0768
-- Postel, J. (1981). Transmission control protocol (RFC 793). Internet Engineering Task Force. https://doi.org/10.17487/RFC0793
-- Python Software Foundation. (2023). socket — Low-level networking interface. Python 3 Documentation. https://docs.python.org/3/library/socket.html
+- Kurose, J. F., & Ross, K. W. (2021). *Computer networking: A top-down approach* (8va ed.). Pearson.
+- Tanenbaum, A. S., Feamster, N., & Wetherall, D. J. (2021). *Computer networks* (6ta ed.). Pearson.
+- Postel, J. (1980). *User datagram protocol* (RFC 768). Internet Engineering Task Force. https://doi.org/10.17487/RFC0768
+- Postel, J. (1981). *Transmission control protocol* (RFC 793). Internet Engineering Task Force. https://doi.org/10.17487/RFC0793
+- Python Software Foundation. (2023). *socket — Low-level networking interface*. Python 3 Documentation. https://docs.python.org/3/library/socket.html
