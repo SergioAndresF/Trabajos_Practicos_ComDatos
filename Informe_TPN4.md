@@ -135,7 +135,7 @@ Con la siguiente Tabla de ruteo:
   <em></em>
 </center>
 
-> Para esta consigna, en primer lugar, se implementó la topología física conectando PC-A al switch SW-1 y PC-B al switch SW-2.  
+> Para esta consigna, en primer lugar, se implementa la topología física conectando PC-A al switch SW-1 y PC-B al switch SW-2.  
 > 
 <center>
   <img src="https://hackmd.io/_uploads/B18cqR6oMe.png" width="600">
@@ -143,7 +143,7 @@ Con la siguiente Tabla de ruteo:
   <em>Figura 10: Topología conectada.</em>
 </center>
 
-> Posteriormente, se configuró el direccionamiento IP estático en las computadoras de acuerdo con la tabla de ruteo provista: `192.168.10.3` para PC-A y `192.168.10.4` para PC-B, ambas utilizando la máscara `255.255.255.0` y la puerta de enlace `192.168.10.1`.
+> Posteriormente, se configura el direccionamiento IP estático en las computadoras de acuerdo con la tabla de ruteo provista: `192.168.10.3` para PC-A y `192.168.10.4` para PC-B, ambas utilizando la máscara `255.255.255.0` y la puerta de enlace `192.168.10.1`.
 
 <center>
   <img src="https://hackmd.io/_uploads/HyuDA0TjGl.png" width="600">
@@ -152,7 +152,7 @@ Con la siguiente Tabla de ruteo:
 </center>
 
 **a.** Desde cada computadora, ingresar a la terminal y configurar los switch. Nombrar a los mismos sw1 y sw2 respectivamente.
-> En este punto, como lo indica el inciso, desde la aplicación de terminal de cada computadora, se ingresó a la interfaz de línea de comandos (`CLI`) de los switches a través de la conexión de consola. Luego, se accedió al modo de configuración global mediante el comando `configure terminal` y se establecieron los nombres lógicos de los dispositivos utilizando el comando `hostname`, designándolos como `sw1` y `sw2` respectivamente.
+> En este punto, como lo indica el inciso, desde la aplicación de terminal de cada computadora, se ingresa a la interfaz de línea de comandos o `CLI` de los switches a través de la conexión de consola. Luego, se accede al modo de configuración global mediante el comando `configure terminal` y se establecen los nombres lógicos de los dispositivos utilizando el comando `hostname`, designándolos como `sw1` y `sw2` respectivamente.
 
 <center>
   <img src="https://hackmd.io/_uploads/H1RaOYCoMx.png" width="800">
@@ -161,9 +161,9 @@ Con la siguiente Tabla de ruteo:
 </center>
 
 **b.** y **c.** Asignar contraseñas privilegiadas, de consola y vty. Encriptar las contraseñas.
-> Continuando con el desarrollo, para garantizar la seguridad de acceso a la administración de los dispositivos, se configuraron credenciales para los distintos niveles de privilegios y líneas de acceso. En ese sentido, se estableció una contraseña segura para el modo privilegiado (`enable secret ExecNotFound`), una contraseña para el puerto de consola (`ConsolaNotFound`) y otra para las 16 líneas de acceso remoto VTY (`VtyNotFound`), habilitando el inicio de sesión (`login`) en las interfaces correspondientes.
+> Continuando con el desarrollo, para garantizar la seguridad de acceso a la administración de los dispositivos, se configuran credenciales para los distintos niveles de privilegios y líneas de acceso. En ese sentido, se establece una contraseña segura para el modo privilegiado (`enable secret ExecNotFound`), una contraseña para el puerto de consola (`ConsolaNotFound`) y otra para las 16 líneas de acceso remoto VTY (`VtyNotFound`), habilitando el inicio de sesión (`login`) en las interfaces correspondientes.
 > 
-> Ahora bien, para proteger las credenciales cargadas en texto plano dentro del archivo de configuración `running-config`, se habilitó la encriptación global ejecutando el comando `service password-encryption` en ambos switches.
+> Ahora bien, para proteger las credenciales cargadas en texto plano dentro del archivo de configuración `running-config`, se habilita la encriptación global ejecutando el comando `service password-encryption` en ambos switches.
 
 <center>
   <img src="https://hackmd.io/_uploads/ByOAFt0ize.png" width="800">
@@ -172,7 +172,7 @@ Con la siguiente Tabla de ruteo:
 </center>
 
 **d.** Configurar las redes VLAN para ambos switch según la tabla de direcciones provista.
-> En este inciso, se procedió a configurar la interfaz de gestión correspondiente a la VLAN 1 en ambos switches. Para ello, se ingresó a la interfaz mediante el comando `interface vlan 1` y se asignaron las direcciones indicadas en la tabla de ruteo: `192.168.1.11` para sw1 y `192.168.1.12` para sw2, ambas con máscara de subred `255.255.255.0`. Posteriormente, se encendieron las interfaces lógicas con el comando `no shutdown`.
+> En este inciso, se procede a configurar la interfaz de gestión correspondiente a la VLAN 1 en ambos switches. Para ello, se ingresa a la interfaz mediante el comando `interface vlan 1` y se asignan las direcciones indicadas en la tabla de ruteo: `192.168.1.11` para sw1 y `192.168.1.12` para sw2, ambas con máscara de subred `255.255.255.0`. Posteriormente, se encienden las interfaces lógicas con el comando `no shutdown`.
 
 <center>
   <img src="https://hackmd.io/_uploads/r1uIk9AiGe.png" width="800">
@@ -181,7 +181,7 @@ Con la siguiente Tabla de ruteo:
 </center>
 
 **e.** Desconectar todas las interfaces que no estén siendo utilizadas.
-> Se procedió a deshabilitar administrativamente todos los puertos físicos que no se encuentran en uso en la topología actual, lo que resulta ser una medida estandarizada de seguridad en infraestructuras de red. Entonces, se agruparon los puertos utilizando el comando `interface range` y, luego, se aplicó el comando `shutdown`.
+> Se procede a deshabilitar administrativamente todos los puertos físicos que no se encuentran en uso en la topología actual, lo que resulta ser una medida estandarizada de seguridad en infraestructuras de red. Entonces, se agrupan los puertos utilizando el comando `interface range` y, luego, se aplica el comando `shutdown`.
 
 <center>
   <img src="https://hackmd.io/_uploads/Bk-LO30sfx.png" width="800">
@@ -194,7 +194,7 @@ Con la siguiente Tabla de ruteo:
 > **En sw2:** Se apagaron los rangos `Fa0/2 - Fa0/17`, `Fa0/19 - Fa0/24` y `Gig0/1 - Gig0/2`, manteniendo activos el puerto `Fa0/1` y el `Fa0/18`, este último corresponde a la conexión a PC-B.
 
 **f.** Guardar la configuración.
-> Ahora bien, con el objetivo de garantizar la persistencia de todos los parámetros aplicados frente a posibles reinicios o cortes de energía, se trasladó la configuración en ejecución, `running-config`, alojada en la memoria RAM hacia la memoria no volátil (NVRAM) utilizando el comando `write memory` en el modo privilegiado de ambos switches. Luego de ejecutar dicho comando, se recibe la línea `[OK]` confirmando el guardado.
+> Ahora bien, con el objetivo de garantizar la persistencia de todos los parámetros aplicados frente a posibles reinicios o cortes de energía, se traslada la configuración en ejecución, `running-config`, alojada en la memoria RAM hacia la memoria no volátil (NVRAM) utilizando el comando `write memory` en el modo privilegiado de ambos switches. Luego de ejecutar dicho comando, se recibe la línea `[OK]` lo que confirma el guardado.
 
 <center>
   <img src="https://hackmd.io/_uploads/HkG6oTRsfl.png" width="800">
@@ -216,7 +216,7 @@ Con la siguiente Tabla de ruteo:
 > Como se puede observar, la prueba es exitosa y, de esta manera, se pone en evidencia que ambas computadoras están lógicamente en la misma subred, `192.168.10.0/24`.
 
 **h.** y **i.** Crear VLANs en ambos switches. Utilizar `show vlan brief` para visualizar la lista de VLANs en alguno de los switch. ¿Cuál es la VLAN utilizada por defecto?.
-> Para este punto, se ingresó al modo de configuración global en ambos switches y se instanciaron las tres redes virtuales solicitadas: `vlan 10` (Laboratorio), `vlan 20` (Bar) y `vlan 99` (Management). Posteriormente, ejecutando el comando `show vlan brief`, se logró verificar la correcta creación de las redes. 
+> Para este punto, se ingresa al modo de configuración global en ambos switches y se instanciaron las tres redes virtuales solicitadas: `vlan 10` (Laboratorio), `vlan 20` (Bar) y `vlan 99` (Management). Posteriormente, ejecutando el comando `show vlan brief`, se logró verificar la correcta creación de las redes. 
 
 <center>
   <img src="https://hackmd.io/_uploads/SJxebCRsfx.png" width="800">
@@ -227,9 +227,9 @@ Con la siguiente Tabla de ruteo:
 > En esta salida se observa que la VLAN utilizada por defecto es la VLAN 1 (`default`), y que, además, la totalidad de los puertos físicos del switch se encuentran asignados a ella de manera predeterminada.
 
 **j.** Asignar la PC-A a la VLAN Laboratorio. 
-> Para asignar la PC-A a la VLAN "Laboratorio" en el switch SW-1, se ingresó a la interfaz correspondiente, `f0/6`, se forzó su operación como puerto de usuario final con el comando `switchport mode access` y se la vinculó a la VLAN 10 mediante `switchport access vlan 10`. 
+> Para asignar la PC-A a la VLAN "Laboratorio" en el switch SW-1, se ingresa a la interfaz correspondiente, `f0/6`, se fuerza su operación como puerto de usuario final con el comando `switchport mode access` y se la vincula a la VLAN 10 mediante `switchport access vlan 10`. 
 > 
-> Si nuevamente se ejecuta `show vlan brief`, se podrá notar que el puerto `Fa0/6` fue removido de la VLAN 1 y ahora figura activo dentro de la VLAN 10. Esto se puede observar en la siguiente figura:
+> Si nuevamente se ejecuta `show vlan brief`, se podrá notar que el puerto `Fa0/6` fue removido de la VLAN 1 y ahora se encuentra activo dentro de la VLAN 10. Esto se puede observar en la siguiente figura:
 
 <center>
   <img src="https://hackmd.io/_uploads/ryRSZHF0zl.png" width="800">
@@ -238,9 +238,9 @@ Con la siguiente Tabla de ruteo:
 </center>
 
 **k.** y **l.** Desde la VLAN 1, remover la ip de Management y configurarla para funcionar en la VLAN 99 (que configuramos como Management). Verificar el estado de la VLAN utilizando `show vlan brief` y el estado de las interfaces utilizando `show ip interface brief`.
-> En SW-1, se ingresó a la interfaz virtual `interface vlan 1`, se le removió la dirección IP utilizando `no ip address` y se la apagó administrativamente ejecutando `shutdown`. 
+> En SW-1, se ingresa a la interfaz virtual `interface vlan 1`, se le remueve la dirección IP utilizando `no ip address` y se la apaga administrativamente ejecutando `shutdown`. 
 > 
-> Seguidamente, se ingresó a la interfaz `interface vlan 99` (Management), a la cual se le asignó la dirección IP de gestión `192.168.1.11 255.255.255.0` y se encendió la interfaz. Mediante el comando `show ip interface brief`, se analizó el estado final de las interfaces en SW-1.
+> Seguidamente, se ingresa a la interfaz `interface vlan 99` (Management), a la cual se le asigna la dirección IP de gestión `192.168.1.11 255.255.255.0` y se enciende la interfaz. Luego, mediante el comando `show ip interface brief`, se analiza el estado final de las interfaces en SW-1.
 
 <center>
   <img src="https://hackmd.io/_uploads/rkDGpARsze.png" width="800">
@@ -248,10 +248,10 @@ Con la siguiente Tabla de ruteo:
   <em>Figura 20: Salidas SW-1: show vlan brief - show ip interface brief.</em>
 </center>
 
-> La salida confirma la exitosa migración de la gestión: la interfaz `Vlan1` figura sin dirección IP asignada y la interfaz `Vlan99` ostenta la IP `192.168.1.11`. Cabe destacar que el `Status` y el `Protocol` de la `Vlan99` figuran en estado `down`; esto se debe a que, en este momento, no existe ningún puerto físico activo asociado a dicha VLAN, por lo que la interfaz virtual no puede levantar (`line protocol down`).
+> La salida confirma la exitosa migración de la gestión: la interfaz `Vlan1` figura sin dirección IP asignada y la interfaz `Vlan99` muestra la IP `192.168.1.11`. Cabe mencionar que el `Status` y el `Protocol` de la `Vlan99` figuran en estado `down` debido a que, en ese momento, no existe ningún puerto físico activo asociado a dicha VLAN, por lo que la interfaz virtual no puede levantar (`line protocol down`).
 
 **m.** Asignar la PC-B a la VLAN Laboratorio en el sw2.
-> Se repitieron los incisos J y K en el segundo switch, es decir, se asignó el puerto de la PC-B, `interface f0/18`, a la VLAN 10 como puerto de acceso. Luego, se removió la IP de la VLAN 1 y, finalmente, se configuró la interfaz virtual de la VLAN 99 con la IP `192.168.1.12`. Las salidas de `show vlan brief` y `show ip interface brief` en SW-2 arrojaron los mismos resultados esperados que en su par.
+> Se repiten los incisos J y K en el segundo switch, es decir, se asignaó el puerto de la PC-B, `interface f0/18`, a la VLAN 10 como puerto de acceso. Luego, se remueve la IP de la VLAN 1 y, finalmente, se configuraó la interfaz virtual de la VLAN 99 con la IP `192.168.1.12`. Las salidas de `show vlan brief` y `show ip interface brief` en SW-2 arrojaron los siguientes resultados.
 
 <center>
   <img src="https://hackmd.io/_uploads/SkbFilJnfe.png" width="800">
@@ -260,7 +260,7 @@ Con la siguiente Tabla de ruteo:
 </center>
 
 **n.** Verificar la conectividad entre PC-A y PC-B utilizando pings. Verificar conectividad entre sw1 y sw2 utilizando pings. Interpretar los resultados.
-> Para finalizar la práctica, se procedió a reevaluar la conectividad de la red. Primeramente, se revisó la conectividad entre PC-A y PC-B:
+> Para finalizar la práctica, se procede a reevaluar la conectividad de la red. Primeramente, se revisa la conectividad entre PC-A y PC-B:
 
 <center>
   <img src="https://hackmd.io/_uploads/SywA-by3Me.png" width="800">
@@ -270,7 +270,7 @@ Con la siguiente Tabla de ruteo:
 
 > A partir de la figura, se puede observar que, al ejecutar un `ping` entre PC-A y PC-B, los paquetes resultan en `Request timed out`, es decir, 100% de pérdida. Esto se debe a que aunque ambas computadoras pertenecen a la misma subred lógica y están asignadas a la misma VLAN (Laboratorio), el enlace físico que une a los switches pertenece por defecto a la VLAN 1. Por lo tanto, el tráfico de la VLAN 10 no puede atravesar dicho enlace para llegar al otro switch.
 
-> Ahora, se revisó la conectividad entre SW-1 y SW-2:
+> Ahora, se revisa la conectividad entre SW-1 y SW-2:
 
 <center>
   <img src="https://hackmd.io/_uploads/ryvcM-k2Gg.png" width="800">
@@ -311,20 +311,20 @@ Y la siguiente tabla de direccionamiento:
   <em></em>
 </center>
 
-> Dando inicio al desarrollo de esta consigna, en primera instancia, se procedió con el despliegue de los dispositivos físicos: Laptop, Switch, Router y Servidores. De acuerdo con lo que plantea la actividad:
-> - **Laptop:** Para las clases Turista y Business se previó 3 y 2 dispositivos respectivamente, los cuales representan a los pasajeros. Luego, 1 solo dispositivo para Admin.
+> Dando inicio al desarrollo de esta consigna, en primera instancia, se procede con el despliegue de los dispositivos físicos: Laptop, Switch, Router y Servidores. De acuerdo con lo que plantea la actividad:
+> - **Laptop:** Para las clases Turista y Business se prevé 3 y 2 dispositivos respectivamente, los cuales representan a los pasajeros. Luego, 1 solo dispositivo para Admin.
 > - **Router:** Un router 2811 como gateway, denominado "Router Avión".
 > - **Switch:** Un switch 2960 para la distribución hacia las terminales.
 > - **Servidor:** Dos servidores, uno local, correspondiente a "Servidor de Entretenimiento" y otro externo para simular la red pública, "ISP".
 
-> Posteriormente, se realizó la ubicación de los dispositivos de acuerdo al background del avión provisto y, luego, la conexión de los mismos, las cuales se asignaron al switch de la siguiente manera:
+> Posteriormente, se realiza la ubicación de los dispositivos de acuerdo al background del avión provisto y, luego, la conexión de los mismos, las cuales se asignaron al switch de la siguiente manera:
 > - **Fa0/1:** Router Avión.
 > - **Fa0/2 - Fa0/4:** Laptops Clase Turista.
 > - **Fa0/5 - Fa0/6:** Laptops Clase Business.
 > - **Fa0/7:** Laptop Admin.
 > - **Fa0/8:** Servidor Entretenimiento 
 
-> Con respecto a la conexión del "ISP" a "Router Avión", la misma se estableció a través de la interfaz `Fa0/1` del router. A continuación, se muestra la distribución de los dispositivos dentro del avión y las conexiones realizadas:
+> Con respecto a la conexión del "ISP" a "Router Avión", la misma se establece a través de la interfaz `Fa0/1` del router. A continuación, se muestra la distribución de los dispositivos dentro del avión y las conexiones realizadas:
 
 <center>
   <img src="https://hackmd.io/_uploads/HkMlqN80Gg.png" width="800">
@@ -332,11 +332,11 @@ Y la siguiente tabla de direccionamiento:
   <em>Figura 25: Esquema de Red del avión.</em>
 </center>
 
-> Lo siguiente fue proceder con la segmentación lógica de la red a través de la configuración del switch. Para ello, se ingresó a la CLI del mismo y se crearon tres VLANs. Luego, a través del comando `interface range` se configuraron los puertos en modo acceso mediante el comando `switchport mode access` y se asignaron a sus respectivas VLANs según la distribución de los equipos finales. De esta manera, se aisló el tráfico de los distintos dominios de difusión como lo indica la consigna: `VLAN 10` (Turista), `VLAN 20` (Business) y `VLAN 99` (Admin). 
+> Lo siguiente fue proceder con la segmentación lógica de la red a través de la configuración del switch. Para ello, se ingresa a la CLI del mismo y se crean tres VLANs. Luego, a través del comando `interface range` se configuran los puertos en modo acceso mediante el comando `switchport mode access` y se asignan a sus respectivas VLANs según la distribución de los equipos finales. De esta manera, se aísla el tráfico de los distintos dominios de difusión como lo indica la consigna: `VLAN 10` (Turista), `VLAN 20` (Business) y `VLAN 99` (Admin). 
 > 
 > Por otro lado, la interfaz `Fa0/1`, la cual establece la conexión entre el switch y el router, fue configurada en modo troncal, utilizando el comando `switchport mode trunk`, para permitir el paso del tráfico etiquetado mediante el estándar IEEE 802.1Q hacia el enrutador principal.
 > 
-> En la siguiente figura se muestra el bloque de código utilizado; además, se diferencian en recuadros cada etapa:
+> En la siguiente figura se muestra el bloque de código utilizado, además, se diferencian en recuadros cada etapa:
 
 <center>
   <img src="https://hackmd.io/_uploads/ByB2-CORMg.png" width="800">
@@ -352,7 +352,7 @@ Y la siguiente tabla de direccionamiento:
   <em>Figura 27: Salida de show vlan brief.</em>
 </center>
 
-> Ahora bien, se procedió a realizar la configuración IP de los servidores mediante el direccionamiento estático. Al Servidor Entretenimiento, el cual pertenece a la VLAN 99, se le asignó la dirección `10.10.99.10/24` con su respectiva puerta de enlace en `10.10.99.1`. Por su parte, al Servidor ISP, que simula la red WAN pública, se le configuró la IP `200.0.0.2`, luego, como máscara de subred se utilizó `255.255.255.252` y, finalmente, se estableció como su puerta de enlace la IP `200.0.0.1`, que corresponde a la interfaz externa del router. 
+> Ahora bien, se procede a realizar la configuración IP de los servidores mediante el direccionamiento estático. Al Servidor Entretenimiento, el cual pertenece a la VLAN 99, se le asigna la dirección `10.10.99.10/24` con su respectiva puerta de enlace en `10.10.99.1`. Por su parte, al Servidor ISP, que simula la red WAN pública, se le configura la IP `200.0.0.2`, luego, como máscara de subred se utiliza `255.255.255.252` y, finalmente, se establece como su puerta de enlace la IP `200.0.0.1`, que corresponde a la interfaz externa del router. 
 > Este procedimiento se puede observar en la siguiente figura:
 
 <center>
@@ -361,9 +361,9 @@ Y la siguiente tabla de direccionamiento:
   <em>Figura 28: Configuración IP estática en los servidores.</em>
 </center>
 
-> Con respecto a la gestión del tráfico de la red, la misma se centralizó en el Router Avión. Para que las distintas VLANs puedan comunicarse utilizando un solo enlace físico, se habilitó la interfaz principal `Fa0/0` y se crearon tres subinterfaces lógicas: `Fa0/0.10`, `Fa0/0.20` y `Fa0/0.99`. A cada una se le asignó su respectiva puerta de enlace y se configuró el encapsulamiento IEEE 802.1Q para separar el tráfico. Por otro lado, la conectividad exterior se resolvió configurando la interfaz `Fa0/1` con direccionamiento público hacia el ISP, respaldada por una ruta estática por defecto (`0.0.0.0 0.0.0.0`) para derivar el tráfico saliente.
+> Con respecto a la gestión del tráfico de la red, la misma se centralizó en el Router Avión. Para que las distintas VLANs puedan comunicarse utilizando un solo enlace físico, se habilita la interfaz principal `Fa0/0` y se crean tres subinterfaces lógicas: `Fa0/0.10`, `Fa0/0.20` y `Fa0/0.99`. A cada una se le asigna su respectiva puerta de enlace y se configura el encapsulamiento IEEE 802.1Q para separar el tráfico. Por otro lado, la conectividad exterior se resuelve configurando la interfaz `Fa0/1` con direccionamiento público hacia el ISP, respaldada por una ruta estática por defecto (`0.0.0.0 0.0.0.0`) para derivar el tráfico saliente.
 >
-> Adicionalmente, para automatizar la asignación de direcciones IP en las terminales, se configuraron tres pools DHCP independientes, reservando las primeras 10 direcciones de cada subred para uso administrativo. Finalmente, para gestionar el acceso a la red pública (WAN), se implementó el protocolo NAT junto con Listas de Control de Acceso (ACLs). Específicamente, la ACL `20` define el tráfico permitido para la traducción NAT, mientras que la ACL `100` se aplicó en la subinterfaz correspondiente a la clase Turista para bloquear explícitamente su salida a Internet, asegurando así que dichos usuarios únicamente interactúen con el servidor local.
+> Adicionalmente, para automatizar la asignación de direcciones IP en las terminales, se configuraron tres pools DHCP independientes, reservando las primeras 10 direcciones de cada subred para uso administrativo. Finalmente, para gestionar el acceso a la red pública (WAN), se implementa el protocolo NAT junto con Listas de Control de Acceso (ACLs). Particularmente, la ACL `20` define el tráfico permitido para la traducción NAT, mientras que la ACL `100` se aplicó en la subinterfaz correspondiente a la clase Turista para bloquear explícitamente su salida a Internet, asegurando así que dichos usuarios únicamente interactúen con el servidor local.
 >
 > A continuación, se muestra el bloque de código ejecutado en Router Avión:
 
@@ -379,7 +379,7 @@ Y la siguiente tabla de direccionamiento:
   <em>Figura 30: Bloque de Código de NAT, ACL y enrutamiento por defecto.</em>
 </center>
 
-> Un detalle que se tuvo en cuenta en este trabajo fue personalizar la página del Servidor Entretenimiento a la cual accederán las laptops. Esto se logró a través del archivo `index.html` del servidor web. A continuación, se muestra el archivo modificado:
+> Un detalle que se tuvo en cuenta en este trabajo fue personalizar la página del Servidor Entretenimiento a la cual accederán las laptops. Esto se logra a través del archivo `index.html` del servidor web. A continuación, se muestra el archivo modificado:
 
 <center>
   <img src="https://hackmd.io/_uploads/SkSjC8IAfx.png" width="800">
@@ -387,9 +387,9 @@ Y la siguiente tabla de direccionamiento:
   <em>Figura 31: Página HTML personalizada.</em>
 </center>
 
-> Con lo realizado hasta ahora, la infraestructura central está operando correctamente. Luego, se procedió a lograr la asignación dinámica de IPs en los dispositivos finales y la validación de la conectividad. 
+> Con lo realizado hasta ahora, la infraestructura central está operando correctamente. Luego, se procede a lograr la asignación dinámica de IPs en los dispositivos finales y la validación de la conectividad. 
 > 
-> Para ello, se accedió a la configuración de IP de cada terminal y se modificó el método de asignación de `Static` a `DHCP`. Durante este proceso, el simulador muestra el estado `Requesting IP Address`. Segundos después, al completarse la negociación con el servidor, se confirma con el mensaje `DHCP Request Successful`, observándose los parámetros de red asignados correctamente.
+> Para ello, se accede a la configuración de IP de cada terminal y se modifica el método de asignación de `Static` a `DHCP`. Durante este proceso, el simulador muestra el estado `Requesting IP Address`. Luego de un tiempo, al completarse la negociación con el servidor, se confirma con el mensaje `DHCP Request Successful`, observándose los parámetros de red asignados correctamente.
 >
 > A fin de evidenciar lo anterior, se tomaron las siguientes capturas, tomando de ejemplo uno de los dispositivos de la Clase Turista:
 
@@ -421,7 +421,7 @@ Y la siguiente tabla de direccionamiento:
   <em>Figura 35: Prueba de Conectividad (Ping al servidor local).</em>
 </center>
 
-> Lo siguiente fue comprobar el correcto funcionamiento de NAT, permitiendo a la red Business alcanzar el ISP, `200.0.0.2`, así como validar el bloqueo de la Lista de Control de Acceso (`access-list 100`): 
+> Lo siguiente fue comprobar el correcto funcionamiento de NAT, permitiendo a la red Business alcanzar el ISP, `200.0.0.2`, así como validar el bloqueo de la Lista de Control de Acceso, `access-list 100`: 
 
 <center>
   <img src="https://hackmd.io/_uploads/Hk6cvyFAfg.png" width="800">
@@ -429,9 +429,9 @@ Y la siguiente tabla de direccionamiento:
   <em>Figura 36: Pruebas de conectividad externa validando NAT y ACLs.</em>
 </center>
 
-> Como se puede observar en la figura, se bloqueó exitosamente el tráfico de salida hacia la WAN desde las terminales de clase Turista (Resultando en `Request timed out`), cumpliendo con los requerimientos operativos. Asimismo, se verificó la conectividad exitosa de las terminales de clase Business hacia la red pública.
+> Como se puede observar en la figura, se bloqueó exitosamente el tráfico de salida hacia la WAN desde las terminales de clase Turista, cumpliendo con los requerimientos operativos. Asimismo, se verificó la conectividad exitosa de las terminales de clase Business hacia la red pública.
 >
-> Para la última prueba, se debía comprobar la conectividad desde la laptop Admin hacia el resto de dispositivos: servidores y laptops. Esto se demuestra a través de las siguientes figuras:
+> Para la última prueba, se comprueba la conectividad desde la laptop Admin hacia el resto de dispositivos: servidores y laptops. Esto se demuestra a través de las siguientes figuras:
 
 <center>
   <img src="https://hackmd.io/_uploads/rJJ5sktCMl.png" width="800">
